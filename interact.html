@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <style>
+        /* so this should contain  the smilly gif */
+
+        .smiley {
+            background-image: url(emojis.gif);
+            height: 120px;
+            width: 120px;
+        }
+
+        .all {
+            background-image: url(emojis.gif);
+            /* height: 100px;
+            width: 1000px; */
+        }
+
+        .Woop {
+            background-image: url(emojis.gif);
+            height: 75px;
+            background-position-x: -212px;
+            background-position-y: -157px;
+        }
+    </style>
+    <script>
+        // timout for reload 
+        // TODO revert to a new 1000 count 
+        var refreshLength = 9990000;
+        function refresh() {
+            //  if(new Date().getTime() - time >= 60000) 
+            window.location.reload(true);
+            //  else 
+            setTimeout(refresh, refreshLength);
+        }
+
+        setTimeout(refresh, refreshLength);
+    </script>
+</head>
+
+<body>
+    <Table>
+        <th>Emoji</th>
+        <tr>
+            <td class="smiley">yo</td>
+
+        </tr>
+        <tr>
+                <td class="Woop">Woop</td>
+            </tr>
+        <tr>
+            <td class="all">nah</td>
+        </tr>
+
+
+    </Table>
+
+</body>
+
+</html>

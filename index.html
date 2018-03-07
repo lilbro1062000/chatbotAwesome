@@ -1,0 +1,231 @@
+<html>
+
+
+<head>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+        }
+
+        body {
+            font-family: BigNoodleTitling;
+            background: rgba(0, 0, 0, 0);
+        }
+
+        body .tag {
+            font-size: 30px;
+        }
+
+        #overlay {
+            width: 1920px;
+            height: 37px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        .section {
+            width: 480px;
+            height: 37px;
+            position: absolute;
+            background: rgba(51, 150, 255, 0.8);
+        }
+
+        .section div {
+            position: absolute;
+        }
+
+        .tag {
+            background: rgba(51, 94, 255, 1);
+            height: 37px;
+            font-size: 12px;
+            line-height: 37px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .tag-highlight {
+            background: rgba(0, 0, 0, 0.2);
+            height: 3px;
+            bottom: 0;
+            right: 0;
+            width: 480px;
+        }
+
+        .name {
+            height: 37px;
+            font-size: 20px;
+            line-height: 37px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #follow {
+            left: 0px;
+            top: 0;
+        }
+
+        #follow .tag {
+            width: 159px;
+        }
+
+        #follow .followerName {
+            width: 321px;
+            left: 159px;
+            font-size: 30px;
+            line-height: 37px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #sub {
+            left: 480px;
+            top: 0;
+        }
+
+        #sub .tag {
+            width: 159px;
+        }
+
+        #sub .subName {
+            width: 321px;
+            left: 159px;
+            font-size: 30px;
+            line-height: 37px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #tip {
+            left: 960px;
+            top: 0;
+        }
+
+        #tip .tag {
+            width: 159px;
+        }
+
+        #tip .tipName {
+            width: 321px;
+            left: 159px;
+            font-size: 30px;
+            line-height: 37px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #game {
+            left: 1440px;
+            top: 0;
+        }
+
+        #game .tag {
+            width: 159px;
+        }
+
+        #game .gameName {
+            width: 321px;
+            left: 159px;
+            font-size: 30px;
+            line-height: 37px;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="overlay">
+        <div id="social" class="section"> Follow me!. to killiminjaroooooo the land of all things where dreams come true.</div>
+        <div id="follow"></div>
+        <div id="sub"></div>
+        <div id="tip"></div>
+        <div id="game"></div>
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.slim.min.js" /> -->
+    <!-- <script>
+        $(document).ready(function () {
+            //Recent Follower (Twitch API Required)
+            $.ajax({
+                type: "GET",
+                url: "https://api.twitch.tv/kraken/channels/videogameroulette/follows/",
+                headers: {
+                    'Client-ID': 'ql93k2lg41xsnebz7kgyfjsrg28j532'
+                },
+                success: function (data1) {
+                    for (var i = 0; i < data1.follows.length; i++) {
+                        var displayName = data1.follows[0].user.display_name;
+                        $("#follow").prepend("<div id='follow' class='section'>" + "<div class='tag'>Recent Follower</div>" + "<div class='followerName'>" + displayName + "</div>" + "<div class='tag-highlight'></div></div>");
+                    }
+                }
+            });
+
+            // Recent Subscriber (GameWisp API Required)
+            // var params = {
+            //   access_token: "CHANNEL_ACCESS_TOKEN",
+            //   limit: 1,
+            //   order: 'desc',
+            //   status: 'active',
+            //   include: 'user'
+            // };
+            // $.getJSON('https://api.gamewisp.com/pub/v1/channel/subscribers/', params, function(data2) {});
+            var subName = "TestUserName";
+            $("#sub").prepend("<div id='sub' class='section'>" + "<div class='tag'>Recent Sub</div>" + "<div class='subName'>" + subName + "</div>" + "<div class='tag-highlight'></div></div>");
+            // Recent Subscriber (Twitch API and Partnership Required)
+            // $.ajax({
+            //   type: "GET",
+            //   url: "https://api.twitch.tv/kraken/channels/videogameroulette/subscriptions/",
+            //   headers: {
+            //     'Client-ID': 'ql93k2lg41xsnebz7kgyfjsrg28j532'
+            //   },
+            //   success: function(data2) {
+            //     console.log(data2);
+            // for (var i = 0; i < data2.subscriptions.length; i++) {
+            // var subName = data2.subscriptions[i].user.display_name;
+            // $("#sub").prepend("<div id='sub' class='section'>" + "<div class='tag'>Recent Sub</div>" + "<div class='subName'>" + subName + "</div>" + "<div class='tag-highlight'></div></div>");
+            //   }
+            // });
+
+            //RECENT TIP (TwitchAlerts API Required)
+            var tipName = "TestUserName: $0.00";
+            $("#tip").prepend("<div id='tip' class='section'>" + "<div class='tag'>Recent Tip</div>" + "<div class='tipName'>" + tipName + "</div>" + "<div class='tag-highlight'></div></div>");
+
+            //Current Game (Twitch API Required)
+            $.ajax({
+                type: "GET",
+                url: "https://api.twitch.tv/kraken/channels/videogameroulette/",
+                headers: {
+                    'Client-ID': 'ql93k2lg41xsnebz7kgyfjsrg28j532'
+                },
+                success: function (data4) {
+                    //console.log(data4);
+                    var gameName = data4.game;
+                    //console.log(gamename)
+                    $("#game").prepend("<div id='game' class='section'>" + "<div class='tag'>Current Game</div>" + "<div class='gameName'>" + gameName + "</div>" + "<div class='tag-highlight'></div></div>");
+                }
+            });
+        });
+    </script> -->
+    <script>
+        // timout for reload 
+        var refreshLength = 10000;
+        function refresh() {
+            //  if(new Date().getTime() - time >= 60000) 
+            window.location.reload(true);
+            //  else 
+            setTimeout(refresh, refreshLength);
+        }
+
+        setTimeout(refresh, refreshLength);
+    </script>
+</body>
+
+</html>

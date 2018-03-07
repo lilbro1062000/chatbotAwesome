@@ -1,0 +1,16 @@
+{
+  "name": "poller",
+  "version": "1.0.0",
+  "description": "stores data and serves html pages",
+  "main": "server.js",
+  "scripts": {
+    "test": "node TestServer.js",
+    "start": "node server.js"
+  },
+  "author": "Abdoulaye Camara",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
